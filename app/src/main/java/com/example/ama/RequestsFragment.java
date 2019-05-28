@@ -87,8 +87,8 @@ public class RequestsFragment extends Fragment {
                     @Override
                     protected void onBindViewHolder(@NonNull final RequestViewHolder holder, int position, @NonNull Contacts model)
                     {
-                        holder.itemView.findViewById(R.id.request_accept_btn).setVisibility(View.VISIBLE);
-                        holder.itemView.findViewById(R.id.request_cancel_btn).setVisibility(View.VISIBLE);
+                        holder.itemView.findViewById(R.id.request_accept_btn).setVisibility(View.INVISIBLE);
+                        holder.itemView.findViewById(R.id.request_cancel_btn).setVisibility(View.INVISIBLE);
 
 
 
@@ -121,7 +121,7 @@ public class RequestsFragment extends Fragment {
                                                 final String requestUserStatus = dataSnapshot.child("status").getValue().toString();
 
                                                 holder.userName.setText(requestUserName);
-                                                holder.userStatus.setText("wants to connect with you");
+                                                holder.userStatus.setText("Wants to connect with you. Click profile image for more options");
 
 
                                                 holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -240,7 +240,7 @@ public class RequestsFragment extends Fragment {
                                     else if(type.equals("sent"))
                                     {
                                         Button request_sent_btn = holder.itemView.findViewById(R.id.request_accept_btn);
-                                        request_sent_btn.setText("Req Sent");
+                                        request_sent_btn.setText("Request sended");
 
                                         holder.itemView.findViewById(R.id.request_cancel_btn).setVisibility(View.INVISIBLE);
 
@@ -260,7 +260,7 @@ public class RequestsFragment extends Fragment {
                                                 final String requestUserStatus = dataSnapshot.child("status").getValue().toString();
 
                                                 holder.userName.setText(requestUserName);
-                                                holder.userStatus.setText("you have sent a request to " + requestUserName);
+                                                holder.userStatus.setText("You have sent a request to " + requestUserName);
 
 
                                                 holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -272,7 +272,7 @@ public class RequestsFragment extends Fragment {
                                                                         "Cancel Chat Request"
                                                                 };
                                                         AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
-                                                        builder.setTitle("Already Sent Request");
+                                                        builder.setTitle("Request sended");
 
 
                                                         builder.setItems(options, new DialogInterface.OnClickListener() {
